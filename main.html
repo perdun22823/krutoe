@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Fortress 2 Ultimate Fan Zone</title>
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --red-team: #b83838;
+            --blue-team: #5b7a8c;
+            --dark-bg: #2b2622;
+            --light-bg: #eddca8;
+            --text-light: #f5e6cc;
+            --text-dark: #3b352f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            background-image: radial-gradient(rgba(0,0,0,0.3) 15%, transparent 16%),
+                              radial-gradient(rgba(0,0,0,0.3) 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        
+        header {
+            background-color: #1a1613;
+            border-bottom: 5px solid var(--red-team);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 0px var(--red-team);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #fca414;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--red-team);
+        }
+
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(43, 38, 34, 1)), 
+                        url('https://i.pinimg.com/736x/cd/8d/2c/cd8d2caaa7b25499b4ed0872144892c7.jpg') center/cover no-repeat;
+            padding: 140px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            color: #e3d3b4;
+            line-height: 1.6;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            padding: 12px 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-red {
+            background-color: var(--red-team);
+            box-shadow: 4px 4px 0px #611d1d;
+        }
+
+        .btn-blue {
+            background-color: var(--blue-team);
+            box-shadow: 4px 4px 0px #344854;
+        }
+
+        .btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.5);
+        }
+
+        
+        .about {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 50px 40px;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            border-radius: 4px;
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
+            border: 2px solid #3b352f;
+        }
+
+        .about h2 {
+            font-size: 38px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--text-dark);
+            padding-bottom: 10px;
+        }
+
+        .about p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .about ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        
+        .classes-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .classes-section h2 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        /* Контейнер слайдера */
+        .slider-container {
+            overflow: hidden;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .classes-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            gap: 30px;
+        }
+
+        .class-card {
+            background-color: #38312c;
+            border: 2px solid #4d443e;
+            border-radius: 6px;
+            overflow: hidden;
+            min-width: calc(33.333% - 20px); /* 3 карточки на экране */
+            flex-shrink: 0;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        @media (max-width: 900px) {
+            .class-card {
+                min-width: calc(50% - 15px); /* 2 карточки на планшетах */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .class-card {
+                min-width: 100%; /* 1 карточка на телефонах */
+            }
+        }
+
+        .class-card:hover {
+            border-color: #fca414;
+        }
+
+        .class-badge {
+            height: 140px;
+            background-color: #231f1c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 42px;
+            color: rgba(255,255,255,0.07);
+            position: relative;
+            user-select: none;
+        }
+
+        .class-badge::after {
+            content: 'TF2';
+            position: absolute;
+            font-size: 14px;
+            bottom: 10px;
+            right: 15px;
+            color: var(--red-team);
+            letter-spacing: 2px;
+        }
+
+        .class-info {
+            padding: 25px;
+        }
+
+        .class-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #fca414;
+        }
+
+        .class-role {
+            display: inline-block;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        
+        .role-attack { background-color: #b83838; }
+        .role-defense { background-color: #de7e23; }
+        .role-support { background-color: #5b7a8c; }
+
+        .class-info p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #ccc;
+            height: 100px; 
+            overflow: auto;
+        }
+
+       
+        .slider-btn {
+            position: absolute;
+            top: 55%;
+            transform: translateY(-50%);
+            background-color: #1a1613;
+            color: #fff;
+            border: 2px solid #fca414;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background-color 0.2s, color 0.2s;
+            user-select: none;
+        }
+
+        .slider-btn:hover {
+            background-color: #fca414;
+            color: #1a1613;
+        }
+
+        .btn-prev { left: -25px; }
+        .btn-next { right: -25px; }
+
+        
+        @media (max-width: 1250px) {
+            .btn-prev { left: 5px; }
+            .btn-next { right: 5px; }
+        }
+
+        
+        footer {
+            background-color: #14110f;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+            border-top: 5px solid var(--blue-team);
+            font-size: 14px;
+            color: #777;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--blue-team);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">TEAM <span>FORTRESS</span> 2</a>
+            <nav>
+                <a href="#about">Об игре</a>
+                <a href="#classes">Классы</a>
+            </nav>
+        </div>
+    </header>
+
+   
+    <section class="hero">
+        <h1>Добро пожаловать в TeamFortress2!</h1>
+        <p>Добро пожаловать в мир с бесконечной резни и весельем.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://store.steampowered.com/app/440/Team_Fortress_2/" target="_blank" class="btn btn-red">Вступить в RED</a>
+            <a href="https://store.steampowered.com/app/440/Team_Fortress_2/" target="_blank" class="btn btn-blue">Вступить в BLU</a>
+        </div>
+    </section>
+
+  
+    <section class="about" id="about">
+        <h2>Краткое погружение в историю и игровой процесс</h2>
+        <p><strong>Team Fortress 2 (TF2)</strong> — это не просто очередной многопользовательский шутер, это живая легенда игровой индустрии от компании Valve. Выйдя в свет в октябре 2007 года в составе сборника *The Orange Box*, игра прошла колоссальный путь трансформации. TF2 полностью отказалась от реалистичного милитари-стиля своих предшественников в пользу эстетики американских рекламных плакатов 1950-60-х годов, шпионских фильмов и неподражаемого сатирического юмора.</p>
+        
+        <p>Сюжет игры строится вокруг непримиримой вражды двух братьев — Редмонда и Блутарха Маннов, которые наняли две противоборствующие команды наемников: <strong>RED</strong> (Reliable Excavation Demolition — Надежные раскопки и подрывные работы) и <strong>BLU</strong> (Builders League United — Объединенная лига строителей). Их бесконечная война ведется за бесплодные пустынные земли и гравийные карьеры, скрывающие под собой передовые промышленные технологии.</p>
+        
+        <p>Геймплей TF2 завязан на жестком классовом взаимодействии. Ни один персонаж здесь не способен выиграть матч в одиночку. Игра предлагает множество культовых режимов боя:</p>
+        <ul>
+            <li><strong>Захват документов (Capture the Flag)</strong> — классическое похищение вражьего чемодана с секретными разведданными.</li>
+            <li><strong>Захват контрольных точек (Control Points)</strong> — динамическая борьба за владение ключевыми позициями на карте.</li>
+            <li><strong>Сопровождение (Payload)</strong> — команда нападающих должна докатить вагонетку с часовой бомбой до базы обороняющихся.</li>
+            <li><strong>Царь горы (King of the Hill)</strong> — удержание единственной центральной точки на протяжении заданного времени.</li>
+        </ul>
+        
+        <p>Важнейшим элементом долголетия игры стала продвинутая система кастомизации. TF2 в шутку называют «главным симулятором шляп в мире». Игроки могут собирать, ковать, обменивать и покупать тысячи косметических предметов, уникальное оружие и насмешки, кардинально меняющие внешний вид любимых персонажей и даже их игровой процесс.</p>
+    </section>
+
+    
+    <section class="classes-section" id="classes">
+        <h2>Наемники (Все 9 классов)</h2>
+        
+        
+        <button class="slider-btn btn-prev" id="prevBtn">❮</button>
+        <button class="slider-btn btn-next" id="nextBtn">❯</button>
+
+        <div class="slider-container">
+            <div class="classes-track" id="track">
+                
+               
+                <div class="class-card">
+                    <div class="class-badge">SCOUT</div>
+                    <div class="class-info">
+                        <h3>Разведчик (Scout)</h3>
+                        <span class="class-role role-attack">Нападение</span>
+                        <p>Быстрый парень из Бостона. Обладает наивысшей скоростью передвижения, умеет делать двойной прыжок в воздухе и захватывает цели в два раза быстрее остальных наемников.</p>
+                    </div>
+                </div>
+
+               
+                <div class="class-card">
+                    <div class="class-badge">SOLDIER</div>
+                    <div class="class-info">
+                        <h3>Солдат (Soldier)</h3>
+                        <span class="class-role role-attack">Нападение</span>
+                        <p>Американский патриот, вооруженный мощной ракетницей. Использует «рокетджампы», жертвуя частью здоровья, чтобы взлетать высоко в воздух и атаковать врагов сверху.</p>
+                    </div>
+                </div>
+
+                
+                <div class="class-card">
+                    <div class="class-badge">PYRO</div>
+                    <div class="class-info">
+                        <h3>Поджигатель (Pyro)</h3>
+                        <span class="class-role role-attack">Нападение</span>
+                        <p>Загадочное существо в противогазе, обожающее огонь. Сжигает врагов вблизи из огнемета и умеет отражать вражеские снаряды сжатым воздухом.</p>
+                    </div>
+                </div>
+
+                
+                <div class="class-card">
+                    <div class="class-badge">DEMOMAN</div>
+                    <div class="class-info">
+                        <h3>Подрывник (Demoman)</h3>
+                        <span class="class-role role-defense">Оборона</span>
+                        <p>Одноглазый шотландец, эксперт по взрывчатке. Сеет хаос с помощью гранатомета и закладывает смертоносные ловушки из липучих бомб.</p>
+                    </div>
+                </div>
+
+                
+                <div class="class-card">
+                    <div class="class-badge">HEAVY</div>
+                    <div class="class-info">
+                        <h3>Пулеметчик (Heavy)</h3>
+                        <span class="class-role role-defense">Оборона</span>
+                        <p>Живой танк из Сибири. Самый медленный, но самый живучий класс с колоссальным уроном от своего любимого шестиствольного пулемета «Саша».</p>
+                    </div>
+                </div>
+
+                
+                <div class="class-card">
+                    <div class="class-badge">ENGINEER</div>
+                    <div class="class-info">
+                        <h3>Инженер (Engineer)</h3>
+                        <span class="class-role role-defense">Оборона</span>
+                        <p>Техасский гений. Возводит автоматические турели для защиты, раздатчики для снабжения союзников патронами и телепорты для быстрой доставки команды на фронт.</p>
+                    </div>
+                </div>
+
+                
+                <div class="class-card">
+                    <div class="class-badge">MEDIC</div>
+                    <div class="class-info">
+                        <h3>Медик (Medic)</h3>
+                        <span class="class-role role-support">Поддержка</span>
+                        <p>Немецкий врач, обеспечивающий выживание команды. Накапливая Убер-заряд во время лечения, может сделать себя и напарника временно неуязвимыми.</p>
+                    </div>
+                </div>
+
+               
+                <div class="class-card">
+                    <div class="class-badge">SNIPER</div>
+                    <div class="class-info">
+                        <h3>Снайпер (Sniper)</h3>
+                        <span class="class-role role-support">Поддержка</span>
+                        <p>Хладнокровный австралийский стрелок. Ликвидирует ключевые цели на огромных дистанциях точными выстрелами в голову из своей винтовки.</p>
+                    </div>
+                </div>
+
+                
+                <div class="class-card">
+                    <div class="class-badge">SPY</div>
+                    <div class="class-info">
+                        <h3>Шпион (Spy)</h3>
+                        <span class="class-role role-support">Поддержка</span>
+                        <p>Французский мастер скрытности. Умеет становиться невидимым, маскироваться под бойцов противника и мгновенно убивать ударом ножа в спину.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+   
+    <footer>
+        <p>© 2026 Team Fortress 2 Fan Site. Разработано для фанатов.</p>
+        <p>Оригинальные права на игру принадлежат <a href="https://www.valvesoftware.com/" target="_blank">Value Corporation</a>.</p>
+    </footer>
+
+  
+    <script>
+const track = document.getElementById('track');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let currentIndex = 0;
+
+function getVisibleCardsCount() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
+}
+
+function getStep() {
+    const card = document.querySelector('.class-card');
+    const style = getComputedStyle(track);
+    const gap = parseInt(style.gap);
+
+    return card.offsetWidth + gap;
+}
+
+function updateSlider() {
+    const totalCards = document.querySelectorAll('.class-card').length;
+    const visibleCards = getVisibleCardsCount();
+
+    const maxIndex = totalCards - visibleCards;
+
+    if (currentIndex > maxIndex) {
+        currentIndex = maxIndex;
+    }
+
+    track.style.transform =
+        `translateX(-${currentIndex * getStep()}px)`;
+}
+
+
+nextBtn.addEventListener('click', () => {
+    const totalCards = document.querySelectorAll('.class-card').length;
+    const visibleCards = getVisibleCardsCount();
+
+    if (currentIndex < totalCards - visibleCards) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
+
+    updateSlider();
+});
+
+
+prevBtn.addEventListener('click', () => {
+    const totalCards = document.querySelectorAll('.class-card').length;
+    const visibleCards = getVisibleCardsCount();
+
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = totalCards - visibleCards;
+    }
+
+    updateSlider();
+});
+
+
+window.addEventListener('resize', () => {
+    currentIndex = 0;
+    updateSlider();
+});
+</script>
+</body>
+</html>
