@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Fortress 2 Ultimate Fan Zone</title>
     <style>
-        
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
 
         :root {
@@ -39,7 +38,6 @@
             letter-spacing: 1px;
         }
 
-        
         header {
             background-color: #1a1613;
             border-bottom: 5px solid var(--red-team);
@@ -83,7 +81,6 @@
             color: var(--red-team);
         }
 
-        
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(43, 38, 34, 1)), 
                         url('https://i.pinimg.com/736x/cd/8d/2c/cd8d2caaa7b25499b4ed0872144892c7.jpg') center/cover no-repeat;
@@ -136,7 +133,6 @@
             box-shadow: 6px 6px 0px rgba(0,0,0,0.5);
         }
 
-        
         .about {
             max-width: 1000px;
             margin: 60px auto;
@@ -169,7 +165,6 @@
             line-height: 1.8;
         }
 
-        
         .classes-section {
             max-width: 1200px;
             margin: 80px auto;
@@ -184,7 +179,6 @@
             color: #fff;
         }
 
-        /* Контейнер слайдера */
         .slider-container {
             overflow: hidden;
             width: 100%;
@@ -202,20 +196,20 @@
             border: 2px solid #4d443e;
             border-radius: 6px;
             overflow: hidden;
-            min-width: calc(33.333% - 20px); /* 3 карточки на экране */
+            min-width: calc(33.333% - 20px);
             flex-shrink: 0;
             transition: transform 0.3s, border-color 0.3s;
         }
 
         @media (max-width: 900px) {
             .class-card {
-                min-width: calc(50% - 15px); /* 2 карточки на планшетах */
+                min-width: calc(50% - 15px);
             }
         }
 
         @media (max-width: 600px) {
             .class-card {
-                min-width: 100%; /* 1 карточка на телефонах */
+                min-width: 100%;
             }
         }
 
@@ -268,7 +262,6 @@
             color: #fff;
         }
 
-        
         .role-attack { background-color: #b83838; }
         .role-defense { background-color: #de7e23; }
         .role-support { background-color: #5b7a8c; }
@@ -281,7 +274,6 @@
             overflow: auto;
         }
 
-       
         .slider-btn {
             position: absolute;
             top: 55%;
@@ -310,13 +302,11 @@
         .btn-prev { left: -25px; }
         .btn-next { right: -25px; }
 
-        
         @media (max-width: 1250px) {
             .btn-prev { left: 5px; }
             .btn-next { right: 5px; }
         }
 
-        
         footer {
             background-color: #14110f;
             text-align: center;
@@ -339,7 +329,6 @@
 </head>
 <body>
 
-    
     <header>
         <div class="nav-container">
             <a href="#" class="logo">TEAM <span>FORTRESS</span> 2</a>
@@ -350,7 +339,6 @@
         </div>
     </header>
 
-   
     <section class="hero">
         <h1>Добро пожаловать в TeamFortress2!</h1>
         <p>Добро пожаловать в мир с бесконечной резни и весельем.</p>
@@ -360,7 +348,6 @@
         </div>
     </section>
 
-  
     <section class="about" id="about">
         <h2>Краткое погружение в историю и игровой процесс</h2>
         <p><strong>Team Fortress 2 (TF2)</strong> — это не просто очередной многопользовательский шутер, это живая легенда игровой индустрии от компании Valve. Выйдя в свет в октябре 2007 года в составе сборника *The Orange Box*, игра прошла колоссальный путь трансформации. TF2 полностью отказалась от реалистичного милитари-стиля своих предшественников в пользу эстетики американских рекламных плакатов 1950-60-х годов, шпионских фильмов и неподражаемого сатирического юмора.</p>
@@ -378,18 +365,15 @@
         <p>Важнейшим элементом долголетия игры стала продвинутая система кастомизации. TF2 в шутку называют «главным симулятором шляп в мире». Игроки могут собирать, ковать, обменивать и покупать тысячи косметических предметов, уникальное оружие и насмешки, кардинально меняющие внешний вид любимых персонажей и даже их игровой процесс.</p>
     </section>
 
-    
     <section class="classes-section" id="classes">
         <h2>Наемники (Все 9 классов)</h2>
-        
         
         <button class="slider-btn btn-prev" id="prevBtn">❮</button>
         <button class="slider-btn btn-next" id="nextBtn">❯</button>
 
-        <div class="slider-container">
+        <div class="slider-container" id="slider-container">
             <div class="classes-track" id="track">
                 
-               
                 <div class="class-card">
                     <div class="class-badge">SCOUT</div>
                     <div class="class-info">
@@ -399,7 +383,6 @@
                     </div>
                 </div>
 
-               
                 <div class="class-card">
                     <div class="class-badge">SOLDIER</div>
                     <div class="class-info">
@@ -409,7 +392,6 @@
                     </div>
                 </div>
 
-                
                 <div class="class-card">
                     <div class="class-badge">PYRO</div>
                     <div class="class-info">
@@ -419,7 +401,6 @@
                     </div>
                 </div>
 
-                
                 <div class="class-card">
                     <div class="class-badge">DEMOMAN</div>
                     <div class="class-info">
@@ -429,7 +410,6 @@
                     </div>
                 </div>
 
-                
                 <div class="class-card">
                     <div class="class-badge">HEAVY</div>
                     <div class="class-info">
@@ -439,7 +419,6 @@
                     </div>
                 </div>
 
-                
                 <div class="class-card">
                     <div class="class-badge">ENGINEER</div>
                     <div class="class-info">
@@ -449,7 +428,6 @@
                     </div>
                 </div>
 
-                
                 <div class="class-card">
                     <div class="class-badge">MEDIC</div>
                     <div class="class-info">
@@ -459,7 +437,6 @@
                     </div>
                 </div>
 
-               
                 <div class="class-card">
                     <div class="class-badge">SNIPER</div>
                     <div class="class-info">
@@ -469,7 +446,6 @@
                     </div>
                 </div>
 
-                
                 <div class="class-card">
                     <div class="class-badge">SPY</div>
                     <div class="class-info">
@@ -483,19 +459,19 @@
         </div>
     </section>
 
-   
     <footer>
         <p>© 2026 Team Fortress 2 Fan Site. Разработано для фанатов.</p>
         <p>Оригинальные права на игру принадлежат <a href="https://www.valvesoftware.com/" target="_blank">Value Corporation</a>.</p>
     </footer>
 
-  
-    <script>
+<script>
+const sliderContainer = document.getElementById('slider-container');
 const track = document.getElementById('track');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 let currentIndex = 0;
+let isThrottled = false;
 
 function getVisibleCardsCount() {
     if (window.innerWidth <= 600) return 1;
@@ -505,8 +481,9 @@ function getVisibleCardsCount() {
 
 function getStep() {
     const card = document.querySelector('.class-card');
+    if (!card) return 0;
     const style = getComputedStyle(track);
-    const gap = parseInt(style.gap);
+    const gap = parseInt(style.gap) || 0;
 
     return card.offsetWidth + gap;
 }
@@ -514,19 +491,16 @@ function getStep() {
 function updateSlider() {
     const totalCards = document.querySelectorAll('.class-card').length;
     const visibleCards = getVisibleCardsCount();
-
-    const maxIndex = totalCards - visibleCards;
+    const maxIndex = Math.max(0, totalCards - visibleCards);
 
     if (currentIndex > maxIndex) {
         currentIndex = maxIndex;
     }
 
-    track.style.transform =
-        `translateX(-${currentIndex * getStep()}px)`;
+    track.style.transform = `translateX(-${currentIndex * getStep()}px)`;
 }
 
-
-nextBtn.addEventListener('click', () => {
+function slideNext() {
     const totalCards = document.querySelectorAll('.class-card').length;
     const visibleCards = getVisibleCardsCount();
 
@@ -535,24 +509,42 @@ nextBtn.addEventListener('click', () => {
     } else {
         currentIndex = 0;
     }
-
     updateSlider();
-});
+}
 
-
-prevBtn.addEventListener('click', () => {
+function slidePrev() {
     const totalCards = document.querySelectorAll('.class-card').length;
     const visibleCards = getVisibleCardsCount();
 
     if (currentIndex > 0) {
         currentIndex--;
     } else {
-        currentIndex = totalCards - visibleCards;
+        currentIndex = Math.max(0, totalCards - visibleCards);
     }
-
     updateSlider();
-});
+}
 
+if (nextBtn) nextBtn.addEventListener('click', slideNext);
+if (prevBtn) prevBtn.addEventListener('click', slidePrev);
+
+if (sliderContainer) {
+    sliderContainer.addEventListener('wheel', (event) => {
+        event.preventDefault();
+
+        if (isThrottled) return;
+        isThrottled = true;
+
+        if (event.deltaY > 0) {
+            slideNext();
+        } else {
+            slidePrev();
+        }
+
+        setTimeout(() => {
+            isThrottled = false;
+        }, 400); 
+    }, { passive: false });
+}
 
 window.addEventListener('resize', () => {
     currentIndex = 0;
